@@ -1,0 +1,58 @@
+.colorHeader{
+    background-color: #2e2e2e;
+}
+.colorCarrusel-Footer{
+    background-color: #656565;
+}
+.colorButton{
+    background-color: #7d7d7d;
+}
+.colorSubmain{
+    background-color: #AC0554;
+}
+.logo{
+    min-width: 10%;
+    object-fit: contain;
+}
+.barraBusqueda{
+    min-width: 20%;
+}
+ 
+.card{
+    border-radius: 1rem;
+    border: #656565 solid 2px;
+}
+.card:hover{
+    transition: 200ms;
+    transform: scale(1.02);
+    box-shadow: 5px 5px #2f2f2f9b ;
+    
+}
+main{
+    min-height: 75vh;
+}
+footer{
+    height: 10vh;
+}
+table td:nth-child(1){
+    width: 40%;
+}
+table td:nth-child(2){
+    width: 40%;
+}
+tr,td{
+    padding: 12px;
+    table-layout: fixed;
+    text-align: center;
+    border: #2e2e2e solid 0.5px;
+}
+th{
+    padding: 12px;
+    text-align: justify;
+}
+
+.img-details{
+    min-width: 18rem;
+    padding: 1rem;
+    object-fit: cover;
+}
