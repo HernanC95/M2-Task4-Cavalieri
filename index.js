@@ -1,58 +1,57 @@
 let fechaActual = data.currentDate;
-let eventos = data.events;
 
 function getEvents() {
   return data.events;
 }
 let container = document.getElementById("container");
-function imprimirCartas(carta) {
+function printCard(card) {
   let article = document.createElement("article");
   article.innerHTML += `    <div class="card h-100" style="width: 18rem">
       <img
-        src="${carta.image}"
+        src="${card.image}"
         class="card-img-top p-2 h-50 rounded-4"
-        alt="${carta.name}"
+        alt="${card.name}"
       />
       <div
         class="card-body d-flex flex-column align-items-center justify-content-between"
       >
-        <h5 class="card-title">${carta.name}</h5>
-        <p class="card-text text-center">${carta.description}</p>
+        <h5 class="card-title">${card.name}</h5>
+        <p class="card-text text-center">${card.description}</p>
         <div
           class="d-flex w-100 justify-content-between align-items-center"
         >
-          <p class="m-0">Price: ${carta.price}</p>
-          <a href="details.html?id=${carta._id}" class="btn btn-secondary">Details</a>
+          <p class="m-0">Price: ${card.price}</p>
+          <a href="details.html?id=${card._id}" class="btn btn-secondary">Details</a>
         </div>
       </div>
     </div>`;
   container.appendChild(article);
 }
 
-getEvents().forEach(imprimirCartas);
+getEvents().forEach(printCard);
 
 const inputSearch = document.getElementById("js-search");
 
-inputSearch.addEventListener("input", filtroCruzado);
+inputSearch.addEventListener("input", crossFilter);
 
-function filtrarTexto(array) {
-  let aux = array.filter((evento) =>
-    evento.name.toLowerCase().includes(inputSearch.value.toLowerCase())
+function filterByText(array) {
+  let filteredArray = array.filter((event) =>
+    event.name.toLowerCase().includes(inputSearch.value.toLowerCase())
   );
-  return aux;
+  return filteredArray;
 }
 
 let check = document.querySelectorAll(".form-check-input");
 for (let element of check) {
-  element.addEventListener("click", filtroCruzado);
+  element.addEventListener("click", crossFilter);
 }
 
-function checkbox() {
+function filterByCheckbox() {
   let checks = document.querySelectorAll(".form-check-input:checked");
   let filterArray = [];
-  checks.forEach((categoria) => {
+  checks.forEach((category) => {
     let newArray = getEvents().filter(
-      (evento) => evento.category === categoria.value
+      (event) => event.category === category.value
     );
     filterArray = filterArray.concat(newArray);
   });
@@ -62,14 +61,14 @@ function checkbox() {
   return filterArray;
 }
 
-function filtroCruzado() {
-  let arrayFiltradosPorCheck = checkbox();
-  let arraysFiltradosPorTexto = filtrarTexto(arrayFiltradosPorCheck);
+function crossFilter() {
+  let arrayFilterByCheckbox = filterByCheckbox();
+  let arraysfilterByText = filterByText(arrayFilterByCheckbox);
 
-  if (arraysFiltradosPorTexto.length === 0) {
-    container.innerHTML = `<h2 class="text-white">No se encontraron Eventos</h2>`;
+  if (arraysfilterByText.length === 0) {
+    container.innerHTML = `<h2 class="text-white">No events found</h2>`;
   } else {
     container.innerHTML = ``;
-    arraysFiltradosPorTexto.forEach(imprimirCartas);
+    arraysfilterByText.forEach(printCard);
   }
 }
