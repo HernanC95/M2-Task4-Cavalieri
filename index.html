@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/style/style.css" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <title>Home</title>
+  </head>
+  <body>
+    <header
+      class="header container-fluid d-flex justify-content-around colorHeader flex-wrap"
+    >
+      <img
+        src="./assets/img/Logo Amazing Events.png"
+        alt="Logo de Amazing Events"
+        class="logo"
+      />
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"></a>
+          <button
+            class="navbar-toggler bg-white"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active text-white"
+                  aria-current="page"
+                  href="#"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="./upcoming-events.html"
+                  >Upcoming Events</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="./past-events.html"
+                  >Past Events</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="./contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="./status.html">Status</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="colorSubmain">
+      <nav
+        class="d-flex justify-content-center colorCarrusel-Footer"
+        aria-label="Page navigation example"
+      >
+        <ul class="pagination w-100 d-flex justify-content-between m-0">
+          <li class="page-item">
+            <a
+              class="page-link border-0 fs-1 p-4 colorCarrusel-Footer text-white"
+              href="./status.html"
+              aria-label="Previous"
+            >
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item d-flex align-items-center">
+            <p class="border-0 fs-1 colorCarrusel-Footer text-white">HOME</p>
+          </li>
+          <li class="page-item">
+            <a
+              class="page-link border-0 fs-1 p-4 colorCarrusel-Footer text-white"
+              href="./upcoming-events.html"
+              aria-label="Next"
+            >
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        class="w-100 d-flex justify-content-around align-items-center flex-wrap pt-3 colorSubmain"
+      >
+        <form class="d-flex gap-4 justify-content-around flex-wrap p-3" action="">
+          <div class="form-check p-3">
+            <input
+              class="form-check-input text-bg-secondary"
+              type="checkbox"
+              value="Food Fair"
+            />
+            <label class="form-check-label text-white" for="flexCheckDefault">
+              Food Fair
+            </label>
+          </div>
+          <div class="form-check p-3">
+            <input
+              class="form-check-input text-bg-secondary"
+              type="checkbox"
+              value="Museum"
+             
+             
+            />
+            <label class="form-check-label text-white" for="flexCheckChecked">
+              Museum
+            </label>
+          </div>
+          <div class="form-check p-3">
+            <input
+              class="form-check-input text-bg-secondary"
+              type="checkbox"
+              value="Costume Party"
+             
+            />
+            <label class="form-check-label text-white" for="flexCheckChecked">
+              Costume Party
+            </label>
+          </div>
+          <div class="form-check p-3">
+            <input
+              class="form-check-input text-bg-secondary"
+              type="checkbox"
+              value="Music Concert"
+             
+            />
+            <label class="form-check-label text-white" for="flexCheckChecked">
+              Music Concert
+            </label>
+          </div>
+          <div class="form-check p-3">
+            <input
+              class="form-check-input text-bg-secondary"
+              type="checkbox"
+              value="Race"
+             
+            />
+            <label class="form-check-label text-white" for="flexCheckChecked">
+              Race
+            </label>
+          </div>
+          <div class="form-check p-3">
+            <input
+              class="form-check-input text-bg-secondary"
+              type="checkbox"
+              value="Book Exchange"
+             
+            />
+            <label class="form-check-label text-white" for="flexCheckChecked">
+              Book Exchange
+            </label>
+          </div>
+          <div class="form-check p-3">
+            <input
+              class="form-check-input text-bg-secondary"
+              type="checkbox"
+              value="Cinema"
+             
+            />
+            <label class="form-check-label text-white" for="flexCheckChecked">
+              Cinema
+            </label>
+          </div>
+        </form>
+        <form class="d-flex p-3 barraBusqueda" role="search">
+          <input
+            id="js-search"
+            class="form-control me-1"
+            type="search"
+            aria-label="Search"
+          />
+        </form>
+      </div>
+      <div
+      id="container"
+        class="container-fluid d-flex justify-content-around aling-items-center p-5 flex-wrap gap-3 colorSubmain"
+      >
+      </div>
+    </main>
+
+    <footer
+      class="d-flex justify-content-between align-items-center px-5 pb-3 pt-3 colorCarrusel-Footer"
+    >
+      <div class="d-flex gap-3">
+        <a class="w-25" href="https://www.instagram.com/"
+          ><img
+            class="bg-white rounded-circle"
+            src="./assets/img/instagram.png"
+            alt="logo instagram"
+        /></a>
+        <a href="https://www.facebook.com/"
+          ><img
+            class="bg-white rounded-circle"
+            src="./assets/img/facebook.png"
+            alt="logo facebook"
+        /></a>
+        <a href="https://www.whatsapp.com/?lang=es"
+          ><img
+            class="bg-white rounded-circle"
+            src="./assets/img/whatsapp.png"
+            alt="logo whatsapp"
+        /></a>
+      </div>
+      <p class="m-0 text-white">COHORT 35</p>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./data.js""></script>
+    <script src="./index.js"></script>
+
+  </body>
+</html>
