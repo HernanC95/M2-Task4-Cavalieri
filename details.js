@@ -1,9 +1,3 @@
-let eventos = data.events;
-
-function getEvents() {
-  return data.events;
-}
-
 let container = document.getElementById("container");
 function imprimirCartas(carta) {
   let article = document.createElement("article");
@@ -31,10 +25,18 @@ function imprimirCartas(carta) {
 }
 
 async function getLocation() {
-  let id = Number(location.search.slice(4));
-  console.log(id);
-  let event = getEvents().filter((evento) => evento._id === id);
-  imprimirCartas(event[0]);
+  try {
+    let data = await fetch ('https://mind-hub.up.railway.app/amazing')
+    data = await data.json()
+    let events=data.events
+    let id = location.search.slice(4);
+    console.log(id);
+    let event = events.filter((evento) => evento.id === id);
+    imprimirCartas(event[0]);
+  } catch (error) {
+    console.log("Hubo un error");
+  }
+
 }
 
 getLocation();
