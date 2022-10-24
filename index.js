@@ -16,7 +16,7 @@ function printCard(card) {
           class="d-flex w-100 justify-content-between align-items-center"
         >
           <p class="m-0">Price: ${card.price}</p>
-          <a href="details.html?id=${card._id}" class="btn btn-secondary">Details</a>
+          <a href="details.html?id=${card.id}" class="btn btn-secondary">Details</a>
         </div>
       </div>
     </div>`;
@@ -72,6 +72,7 @@ async function fetchApi(){
     data = await data.json()
     data.events.forEach(printCard)
     let events=data.events
+    console.log(events);
     crossFilter(events)
     
   } catch (error) {
