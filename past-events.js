@@ -1,15 +1,5 @@
-let fechaActual = data.currentDate;
-let eventos = data.events;
-
-function getEvents() {
-  return data.events;
-}
 
 let container = document.getElementById("container");
-
-getEvents()
-  .filter((event) => event.date <= fechaActual)
-  .forEach(imprimirCartas);
 
 function imprimirCartas(carta) {
   let article = document.createElement("article");
@@ -28,7 +18,7 @@ function imprimirCartas(carta) {
           class="d-flex w-100 justify-content-between align-items-center"
         >
           <p class="m-0">Price: ${carta.price}</p>
-          <a href="details.html?id=${carta._id}" class="btn btn-secondary">Details</a>
+          <a href="details.html?id=${carta.id}" class="btn btn-secondary">Details</a>
         </div>
       </div>
     </div>`;
@@ -36,7 +26,7 @@ function imprimirCartas(carta) {
 }
 
 const inputSearch = document.getElementById("js-search");
-inputSearch.addEventListener("input", filtroCruzado);
+inputSearch.addEventListener("input", fetchApi);
 
 function filtrarTexto(array) {
   let aux = array.filter((evento) =>
@@ -47,26 +37,25 @@ function filtrarTexto(array) {
 
 let check = document.querySelectorAll(".form-check-input");
 for (let element of check) {
-  element.addEventListener("click", filtroCruzado);
+  element.addEventListener("click", fetchApi);
 }
 
-function checkbox() {
-  let eventosPasados = getEvents().filter((event) => event.date <= fechaActual);
+function checkbox(events) {
   let checks = document.querySelectorAll(".form-check-input:checked");
   let filterArray = [];
   checks.forEach((categoria) => {
-    let newArray = eventosPasados.filter(
+    let newArray = events.filter(
       (evento) => evento.category === categoria.value
     );
     filterArray = filterArray.concat(newArray);
   });
   if (filterArray.length === 0) {
-    filterArray = eventosPasados;
+    filterArray = events;
   }
   return filterArray;
 }
-function filtroCruzado() {
-  let arrayFiltradosPorCheck = checkbox();
+function filtroCruzado(events) {
+  let arrayFiltradosPorCheck = checkbox(events);
   let arraysFiltradosPorTexto = filtrarTexto(arrayFiltradosPorCheck);
 
   if (arraysFiltradosPorTexto.length === 0) {
@@ -76,3 +65,17 @@ function filtroCruzado() {
     arraysFiltradosPorTexto.forEach(imprimirCartas);
   }
 }
+
+  async function fetchApi(){
+    try {
+      let data = await fetch ('https://mind-hub.up.railway.app/amazing?time=past')
+      data = await data.json()
+      let events = data.events
+      events.forEach(imprimirCartas)
+      filtroCruzado(events)
+    } catch (error) {
+      console.log('Hubo un error');
+    }
+  }
+  
+  fetchApi()
