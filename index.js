@@ -1,8 +1,3 @@
-let fechaActual = data.currentDate;
-
-function getEvents() {
-  return data.events;
-}
 let container = document.getElementById("container");
 function printCard(card) {
   let article = document.createElement("article");
@@ -28,11 +23,9 @@ function printCard(card) {
   container.appendChild(article);
 }
 
-getEvents().forEach(printCard);
-
 const inputSearch = document.getElementById("js-search");
 
-inputSearch.addEventListener("input", crossFilter);
+inputSearch.addEventListener("input", fetchApi);
 
 function filterByText(array) {
   let filteredArray = array.filter((event) =>
@@ -43,26 +36,26 @@ function filterByText(array) {
 
 let check = document.querySelectorAll(".form-check-input");
 for (let element of check) {
-  element.addEventListener("click", crossFilter);
+  element.addEventListener("click", fetchApi);
 }
 
-function filterByCheckbox() {
+function filterByCheckbox(events) {
   let checks = document.querySelectorAll(".form-check-input:checked");
   let filterArray = [];
   checks.forEach((category) => {
-    let newArray = getEvents().filter(
+    let newArray = events.filter(
       (event) => event.category === category.value
     );
     filterArray = filterArray.concat(newArray);
   });
   if (filterArray.length === 0) {
-    filterArray = getEvents();
+    filterArray = events;
   }
   return filterArray;
 }
 
-function crossFilter() {
-  let arrayFilterByCheckbox = filterByCheckbox();
+function crossFilter(events) {
+  let arrayFilterByCheckbox = filterByCheckbox(events);
   let arraysfilterByText = filterByText(arrayFilterByCheckbox);
 
   if (arraysfilterByText.length === 0) {
@@ -72,3 +65,18 @@ function crossFilter() {
     arraysfilterByText.forEach(printCard);
   }
 }
+
+async function fetchApi(){
+  try {
+    let data = await fetch ('https://mind-hub.up.railway.app/amazing')
+    data = await data.json()
+    data.events.forEach(printCard)
+    let events=data.events
+    crossFilter(events)
+    
+  } catch (error) {
+    console.log('Hubo un error');
+  }
+}
+
+fetchApi()
