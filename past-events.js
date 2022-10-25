@@ -49,7 +49,7 @@ function checkbox(events) {
     );
     filterArray = filterArray.concat(newArray);
   });
-  if (filterArray.length === 0) {
+  if (checks.length === 0) {
     filterArray = events;
   }
   return filterArray;
