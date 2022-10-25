@@ -190,7 +190,7 @@ async function fetchApiTable3() {
       });
     }
 
-    let table3 = document.getElementById("table-past-3");
+    let table3 = document.getElementById("table-Upcoming-3");
     for (i of eventsFilter) {
       table3.innerHTML += `
           <tr>
