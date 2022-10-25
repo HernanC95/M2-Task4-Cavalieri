@@ -67,7 +67,7 @@ function filtroCruzado(events) {
 
 async function fetchApi(){
   try {
-    let data = await fetch ('https://mind-hub.up.railway.app/amazing?time=upcoming')
+    let data = await fetch ('https://mh-amazing.herokuapp.com/amazing?time=upcoming')
     data = await data.json()
     let events = data.events
     events.forEach(imprimirCartas)
