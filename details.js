@@ -7,7 +7,7 @@ function imprimirCartas(carta) {
                 <div class="d-flex flex-column flex-wrap justify-content-between p-2">    
                     <h1 class="p-2 text-center fw-bold">${carta.name}</h1>
                     <div class="d-flex flex-wrap justify-content-around p-5">
-                    <p><span class="fw-bold p-2">Fecha:</span>  ${carta.date}</p>
+                    <p><span class="fw-bold p-2">Fecha:</span>  ${carta.date.slice(0,10)}</p>
                     <p><span class="fw-bold p-2">Categoria:</span>  ${carta.category}</p>
                     </div>
                     <p class="text-center w-75 align-self-center">
@@ -26,7 +26,7 @@ function imprimirCartas(carta) {
 
 async function getLocation() {
   try {
-    let data = await fetch ('https://mind-hub.up.railway.app/amazing')
+    let data = await fetch ('https://mh-amazing.herokuapp.com/amazing')
     data = await data.json()
     let events=data.events
     let id = location.search.slice(4);
