@@ -68,7 +68,7 @@ function crossFilter(events) {
 
 async function fetchApi(){
   try {
-    let data = await fetch ('https://mind-hub.up.railway.app/amazing')
+    let data = await fetch ('https://mh-amazing.herokuapp.com/amazing')
     data = await data.json()
     data.events.forEach(printCard)
     let events=data.events
